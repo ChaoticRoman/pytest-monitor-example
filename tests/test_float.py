@@ -20,5 +20,14 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(result, 0.5)
 
 
+def test_empty_string():
+    try:
+        float("")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Error: Should have raised ValueError.")
+
+
 if __name__ == '__main__':
     unittest.main()
