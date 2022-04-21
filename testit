@@ -7,5 +7,8 @@ sqlite3  -header -json .pymon "SELECT * from EXECUTION_CONTEXTS;" \
     | python3 -m json.tool
 
 echo TEST_METRICS:
+echo "CPU_USAGE: System-wide CPU usage as a percentage (100 % is equivalent to one core)."
+echo "MEM_USAGE: Maximum resident memory used during the test execution (in megabytes)."
+# From: https://pytest-monitor.readthedocs.io/en/latest/operating.html
 sqlite3  -header -column .pymon \
     "SELECT ITEM_FS_LOC,ITEM,TOTAL_TIME,CPU_USAGE,MEM_USAGE from TEST_METRICS;"

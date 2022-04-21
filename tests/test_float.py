@@ -29,5 +29,18 @@ def test_empty_string():
         raise AssertionError("Error: Should have raised ValueError.")
 
 
+def megabyte_array(megabytes=1):
+    count = megabytes * (2**20 // 8)  # Python uses 8 byte integers
+    return [0 for _ in range(count)]
+
+
+def test_allocate_1MB():
+    megabyte_array()
+
+
+def test_allocate_100MB():
+    megabyte_array(100)
+
+
 if __name__ == '__main__':
     unittest.main()
