@@ -3,7 +3,9 @@
 /usr/bin/time -v pytest-3 tests
 
 echo EXECUTION_CONTEXTS:
-sqlite3 .pymon "SELECT * from EXECUTION_CONTEXTS;"
+sqlite3  -header -json .pymon "SELECT * from EXECUTION_CONTEXTS;" \
+    | python3 -m json.tool
 
 echo TEST_METRICS:
-sqlite3 .pymon "SELECT * from TEST_METRICS;"
+sqlite3  -header -column .pymon \
+    "SELECT ITEM_FS_LOC,ITEM,TOTAL_TIME,CPU_USAGE,MEM_USAGE from TEST_METRICS;"
