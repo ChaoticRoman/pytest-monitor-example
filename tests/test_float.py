@@ -11,9 +11,13 @@ class TestStringMethods(unittest.TestCase):
         with self.assertRaises(ValueError):
             float("")
 
+    def test_invalid_string(self):
+        with self.assertRaises(ValueError):
+            float("xyz")
+
     def test_correct_string(self):
         result = float("0.5")
-        self.assertEqual(result, 0.6)
+        self.assertEqual(result, 0.5)
 
 
 if __name__ == '__main__':
