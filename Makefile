@@ -1,5 +1,12 @@
+IMAGE = pytest-monitor-example
+
 build:
-	docker build -t pytest-monitor-example .
+	docker build -t $(IMAGE) .
+
+DOCKER_RUN_BASE_CMD = docker run -it --rm $(IMAGE)
 
 test: build
-	docker run -it pytest-monitor-example pytest-3 .
+	$(DOCKER_RUN_BASE_CMD) pytest-3 tests
+
+interactive: build
+	$(DOCKER_RUN_BASE_CMD) bash
