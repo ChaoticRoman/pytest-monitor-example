@@ -9,10 +9,11 @@ The sample app is a converter from TWh/year to GW.
 
 ## Requirements
 
-Docker is the only requirement, install it on Debian-like systems with
+Docker and make are the only requirement, install these on Debian-like systems
+with
 
 ```
-sudo apt install docker.io
+sudo apt install docker.io make
 ```
 
 ## Testing
