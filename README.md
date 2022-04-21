@@ -18,9 +18,15 @@ sudo apt install docker.io make
 
 ## Testing
 
+Test the application with
+
 ```
 make test
 ```
+
+Various metrics for whole test suite are provided using `/usr/bin/time -v` command.
+One of the most useful metrics is "Maximum resident set size (kbytes)" for peak
+memory usage.
 
 ## Interactive testing
 
@@ -54,6 +60,12 @@ tests/test_float.py ...                                                         
 =========================================================================================== 3 passed in 0.02s ============================================================================================
 root@33171639d7fc:/opt/pytest-monitor-example# ls .pymon
 .pymon
+```
+
+There is a helper script to analyze restulting test metrics database, use it with
+
+```
+./testit
 ```
 
 ## Usage [Not implemented yet]

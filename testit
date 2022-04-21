@@ -1,0 +1,9 @@
+#!/bin/bash
+
+/usr/bin/time -v pytest-3 tests
+
+echo EXECUTION_CONTEXTS:
+sqlite3 .pymon "SELECT * from EXECUTION_CONTEXTS;"
+
+echo TEST_METRICS:
+sqlite3 .pymon "SELECT * from TEST_METRICS;"
