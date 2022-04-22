@@ -6,6 +6,12 @@ import unittest
 
 
 class TestStringMethods(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        print("Setting up the class.")
+
+    def setUp(self):
+        print("Setting up the test.")
 
     def test_empty_string(self):
         with self.assertRaises(ValueError):
@@ -19,14 +25,12 @@ class TestStringMethods(unittest.TestCase):
         result = float("0.5")
         self.assertEqual(result, 0.5)
 
+    def test_allocate_1MB(self):
+        megabyte_array()
 
-def test_empty_string():
-    try:
-        float("")
-    except ValueError:
-        pass
-    else:
-        raise AssertionError("Error: Should have raised ValueError.")
+
+    def test_allocate_100MB(self):
+        megabyte_array(100)
 
 
 def megabyte_array(megabytes=1):
@@ -34,12 +38,11 @@ def megabyte_array(megabytes=1):
     return [0 for _ in range(count)]
 
 
-def test_allocate_1MB():
-    megabyte_array()
+tests = TestStringMethods()
 
 
-def test_allocate_100MB():
-    megabyte_array(100)
+def test_empty_string():
+    tests.test_empty_string()
 
 
 if __name__ == '__main__':
