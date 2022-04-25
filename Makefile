@@ -6,7 +6,7 @@ build:
 DOCKER_RUN_BASE_CMD = docker run -it --rm $(IMAGE)
 
 test: build
-	$(DOCKER_RUN_BASE_CMD) ./testit
+	$(DOCKER_RUN_BASE_CMD)
 
 interactive: build
 	$(DOCKER_RUN_BASE_CMD) bash

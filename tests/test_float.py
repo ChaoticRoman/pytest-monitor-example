@@ -31,7 +31,7 @@ def test_empty_string():
 
 def megabyte_array(megabytes=1):
     count = megabytes * (2**20 // 8)  # Python uses 8 byte integers
-    return [0 for _ in range(count)]
+    [i for i in range(count)]
 
 
 def test_allocate_1MB():
